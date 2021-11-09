@@ -1,5 +1,13 @@
 plugins {
+    java
     id("software.amazon.smithy").version("0.5.3")
+}
+
+buildscript {
+    dependencies {
+    	classpath("software.amazon.smithy:smithy-openapi:1.13.1")
+		classpath("software.amazon.smithy:smithy-aws-traits:1.13.1")
+    }
 }
 
 repositories {
@@ -8,13 +16,13 @@ repositories {
 }
 
 dependencies {
-    implementation("software.amazon.smithy:smithy-model:1.13.1")
+    implementation("software.amazon.smithy:smithy-aws-traits:1.13.1")
+	implementation("software.amazon.smithy:smithy-go-codegen:0.1.0")
 }
 
-configure<software.amazon.smithy.gradle.SmithyExtension> {
-    // Uncomment this to use a custom projection when building the JAR.
-    // projection = "foo"
-}
+//configure<software.amazon.smithy.gradle.SmithyExtension> {
+//    // Uncomment this to use a custom projection when building the JAR.
+//    // projection = "foo"
+//}
 
-// Uncomment to disable creating a JAR.
-//tasks["jar"].enabled = false
+tasks["jar"].enabled = false

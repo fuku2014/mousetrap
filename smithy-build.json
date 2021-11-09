@@ -1,3 +1,14 @@
 {
-    "version": "1.0"
+    "version": "1.0",
+    "plugins": {
+        "openapi": {
+            "service": "mousetrap#Mousetrap",
+			"protocol": "aws.protocols#restJson1"
+        },
+        "go-codegen": {
+            "service": "mousetrap#Mousetrap",
+            "module": "mousetrap",
+            "moduleVersion": "1.0.0"
+        }
+    }
 }
